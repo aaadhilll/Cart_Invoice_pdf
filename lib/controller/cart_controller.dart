@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../model/product_moel.dart';
 
 class CartController extends GetxController {
-  var _products = {}.obs;
+  final _products = {}.obs;
   //  var _products = List<Product>.empty().obs
   // double get totalPrice => _products.fold(0, (sum, item) => sum + item.price);
   void addProduct(Product product) {
@@ -30,14 +30,27 @@ class CartController extends GetxController {
   get productsSubtotal => _products.entries
       .map((product) => product.key.price * product.value)
       .toList();
-  get total => _products.entries
-      .map((product) => product.key.price * product.value)
-      .toList()
-      .reduce((value, element) => value + element)
-      .toStringAsFixed(2);
-  get offer => _products.entries
-      .map((product) => product.value * product.key.price * 0.5)
-      .toList();
+  get total => _products.isEmpty
+      ? 0.00
+      : _products.entries
+          .map((product) => product.key.price * product.value)
+          .toList()
+          .reduce((value, element) => value + element)
+          .toStringAsFixed(2);
+  get offer => _products.isEmpty
+      ? 0.00
+      : _products.entries
+          .map((product) => product.value * product.key.price * 0.5)
+          .toList()
+          .reduce((value, element) => value + element);
+  get taX => _products.isEmpty
+      ? 0.00
+      : _products.entries
+          .map((product) => product.value * product.key.price * 0.05)
+          .toList()
+          .reduce((value, element) => value + element);
+
+  get thePay => offer + taX;
 
   get products => _products;
 }
