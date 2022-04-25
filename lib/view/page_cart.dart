@@ -11,9 +11,7 @@ class PageOfCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Icon(Icons.shopping_cart),
-        backgroundColor: Colors.black,
-      ),
+          title: Icon(Icons.shopping_cart), backgroundColor: Colors.green),
       body: Column(
         children: [
           Container(

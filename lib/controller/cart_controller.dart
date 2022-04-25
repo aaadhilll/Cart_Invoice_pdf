@@ -14,7 +14,8 @@ class CartController extends GetxController {
       _products[product] = 1;
     }
     Get.snackbar("Added to Cart", " ${product.name}",
-        snackPosition: SnackPosition.BOTTOM,
+        snackStyle: SnackStyle.FLOATING,
+        snackPosition: SnackPosition.TOP,
         duration: Duration(milliseconds: 750),
         backgroundColor: Color.fromRGBO(0, 3, 3, 237));
   }

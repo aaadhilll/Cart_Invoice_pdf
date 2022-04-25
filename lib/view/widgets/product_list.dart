@@ -41,7 +41,18 @@ class ListOfProducts extends StatelessWidget {
             Container(
               height: 100,
               width: 100,
-              color: Colors.yellow,
+              decoration: BoxDecoration(
+                color: const Color(0xff7c94b6),
+                image: DecorationImage(
+                  image: AssetImage('${Product.products[index].images}'),
+                  fit: BoxFit.cover,
+                ),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(2),
+              ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
