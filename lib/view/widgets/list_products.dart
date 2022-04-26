@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/cart_controller.dart';
-import '../../model/product_moel.dart';
+import '../../model/product_model.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({Key? key}) : super(key: key);
@@ -59,11 +59,11 @@ class ListOfProducts extends StatelessWidget {
               children: [
                 Text(
                   Product.products[index].name,
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
                 Text(
-                  'Price:${Product.products[index].price}',
-                  style: TextStyle(fontSize: 15),
+                  'Price: ${Product.products[index].price.toStringAsFixed(2)}',
+                  style: const TextStyle(fontSize: 15),
                 ),
               ],
             ),
@@ -77,7 +77,7 @@ class ListOfProducts extends StatelessWidget {
                 onPressed: (() {
                   cartController.addProduct(Product.products[index]);
                 }),
-                child: Text('Add to \n Cart'),
+                child: const Text('Add to \n Cart'),
               ),
             ),
           ],

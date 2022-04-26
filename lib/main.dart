@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:invoice2/view/products_page.dart';
+import 'package:invoice2/view/page_products.dart';
 
 void main() {
   runApp(const MyApp());

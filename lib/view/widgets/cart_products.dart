@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/cart_controller.dart';
-import '../../model/product_moel.dart';
+import '../../model/product_model.dart';
 
 class CartProducts extends StatelessWidget {
   final CartController controller = Get.find();
@@ -12,7 +12,8 @@ class CartProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        height: 500,
+        // height: 400,
+        height: MediaQuery.of(context).size.height / 1.6,
         child: ListView.builder(
             itemCount: controller.products.length,
             itemBuilder: ((context, index) {
@@ -51,7 +52,7 @@ class CartProductCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height: 100,
+              height: 101,
               width: 100,
               decoration: BoxDecoration(
                 color: const Color(0xff7c94b6),
@@ -70,11 +71,11 @@ class CartProductCard extends StatelessWidget {
               children: [
                 Text(
                   product.name,
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
                 Text(
-                  'Price${product.price}',
-                  style: TextStyle(fontSize: 15),
+                  'Price: ${controller.productsSubtotal[index].toStringAsFixed(2)}',
+                  style: const TextStyle(fontSize: 15),
                 )
               ],
             ),
@@ -84,13 +85,13 @@ class CartProductCard extends StatelessWidget {
                     onPressed: () {
                       controller.removeProduct(product);
                     },
-                    icon: Icon(Icons.remove_circle)),
+                    icon: const Icon(Icons.remove_circle)),
                 Text("${quantity}"),
                 IconButton(
                     onPressed: () {
                       controller.addProduct(product);
                     },
-                    icon: Icon(Icons.add_circle)),
+                    icon: const Icon(Icons.add_circle)),
               ],
             ),
           ],
